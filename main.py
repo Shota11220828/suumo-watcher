@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import os
 import time
 
-# LINE Notify トークン（Railway の環境変数に入れる）
+# LINE Notify トークン (Railway の環境変数に入れる)
 LINE_TOKEN = os.getenv("LINE_TOKEN")
 LINE_URL = "https://notify-api.line.me/api/notify"
 
@@ -80,7 +80,11 @@ def parse_suumo(url):
                 continue
             sent_list.add(link)
 
-            results.append(f"{title}\n{address}\n{madori} / {size}㎡\n家賃: {rent_text}（管理費 {mng_text}）\n築年数: {age_text}\n{link}")
+            results.append(
+                f"{title}\n{address}\n{madori} / {size}㎡\n"
+                f"家賃: {rent_text}（管理費 {mng_text}）\n"
+                f"築年数: {age_text}\n{link}"
+            )
 
     return results
 
@@ -105,4 +109,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
